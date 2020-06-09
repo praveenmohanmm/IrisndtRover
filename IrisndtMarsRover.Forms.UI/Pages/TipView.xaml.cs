@@ -74,7 +74,7 @@ LMLMLMLMM";
                 position.StartMoving(maxPoints, commands);
 
                 var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
-                outputpath = position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
+                outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
 
                 SKPath path = new SKPath();
 
