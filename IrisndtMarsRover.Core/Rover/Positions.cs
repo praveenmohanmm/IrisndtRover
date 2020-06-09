@@ -13,7 +13,7 @@ namespace IrisndtMarsRover.Core
 
     public class RoverPoints
     {
-        public RoverPoints(int x, int y)
+        public RoverPoints(float x, float y)
         {
             XPos = x;
             YPos = y;
@@ -29,8 +29,8 @@ namespace IrisndtMarsRover.Core
 
     public class Position : IPosition
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
         public List<RoverPoints> FlowPath { get; set; }
         public RoverDirection Direction { get; set; }
         

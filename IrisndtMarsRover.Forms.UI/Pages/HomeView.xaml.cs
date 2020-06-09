@@ -34,6 +34,7 @@ LMLMLMLMM";
 
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
+     
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -58,73 +59,81 @@ LMLMLMLMM";
 
             SetupCanvas(args);
 
-
-            if (drawPath)
+            try
             {
-                Position position = new Position()
+                if (drawPath)
                 {
-                    X = (int)startingPos.X,
-                    Y = (int)startingPos.Y,
-                    Direction = RoverDirection.N
-                };
+                    Position position = new Position()
+                    {
+                        X = Convert.ToSingle(startingPos.X),
+                        Y = Convert.ToSingle(startingPos.Y),
+                        Direction = RoverDirection.N
+                    };
 
-                var maxPoints = new List<int>() { rows, cols };
+                    var maxPoints = new List<int>() { rows, cols };
 
 
-                position.ProcessMovements(maxPoints, commands);
+                    position.ProcessMovements(maxPoints, commands);
 
-                var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
-                outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
+                    var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
+                    outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
 
-                SKPath path = new SKPath();
+                    SKPath path = new SKPath();
 
-                path.MoveTo(2 * widthDensity, Convert.ToSingle(canvasView.CanvasSize.Height - (2 * heightDensity)));
+                    path.MoveTo(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)));
 
-                for (int index = 0; index < position.FlowPath.Count; index++)
-                {
-                    path.LineTo((position.FlowPath[index].XPos * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (position.FlowPath[index].YPos * heightDensity)));
+                    for (int index = 0; index < position.FlowPath.Count; index++)
+                    {
+                        path.LineTo((position.FlowPath[index].XPos * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (position.FlowPath[index].YPos * heightDensity)));
+                    }
+                    canvas.DrawPath(path, paint);
+
+
+                    SKPaint circleRedPaint = new SKPaint
+                    {
+                        Style = SKPaintStyle.Fill,
+                        Color = SKColors.Red,
+                        StrokeWidth = 5,
+                        StrokeCap = SKStrokeCap.Round,
+                        StrokeJoin = SKStrokeJoin.Round
+                    };
+
+
+                    SKPaint circleGreenPaint = new SKPaint
+                    {
+                        Style = SKPaintStyle.Fill,
+                        Color = SKColors.Green,
+                        StrokeWidth = 5,
+                        StrokeCap = SKStrokeCap.Round,
+                        StrokeJoin = SKStrokeJoin.Round
+                    };
+
+
+                    using (var textPaint = new SKPaint())
+                    {
+                        textPaint.TextSize = 30;
+                        textPaint.IsAntialias = true;
+                        textPaint.Color = SKColors.Red;
+                        textPaint.IsStroke = true;
+                        textPaint.StrokeWidth = 3;
+                        textPaint.TextAlign = SKTextAlign.Center;
+                        canvas.DrawText(outputpath, new SKPoint(canvasView.CanvasSize.Width / 2, canvasView.CanvasSize.Height / 2), textPaint);
+                    }
+
+                    // end pos
+                    canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
+
+                    // start pos
+                    canvas.DrawCircle(new SKPoint(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
+
                 }
-                canvas.DrawPath(path, paint);
-
-
-                SKPaint circleRedPaint = new SKPaint
-                {
-                    Style = SKPaintStyle.Fill,
-                    Color = SKColors.Red,
-                    StrokeWidth = 5,
-                    StrokeCap = SKStrokeCap.Round,
-                    StrokeJoin = SKStrokeJoin.Round
-                };
-
-
-                SKPaint circleGreenPaint = new SKPaint
-                {
-                    Style = SKPaintStyle.Fill,
-                    Color = SKColors.Green,
-                    StrokeWidth = 5,
-                    StrokeCap = SKStrokeCap.Round,
-                    StrokeJoin = SKStrokeJoin.Round
-                };
-
-
-                using (var textPaint = new SKPaint())
-                {
-                    textPaint.TextSize = 30;
-                    textPaint.IsAntialias = true;
-                    textPaint.Color = SKColors.Red;
-                    textPaint.IsStroke = true;
-                    textPaint.StrokeWidth = 3;
-                    textPaint.TextAlign = SKTextAlign.Center;
-                    canvas.DrawText(outputpath, new SKPoint(canvasView.CanvasSize.Width / 2, canvasView.CanvasSize.Height / 2), textPaint);
-                }
-
-                // end pos
-                canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
-
-                // start pos
-                canvas.DrawCircle(new SKPoint( Convert.ToSingle( startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
-
             }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", "Out of Coordinate system", "Cancel");
+            }
+
+           
 
 
         }
@@ -203,6 +212,11 @@ LMLMLMLMM";
             
 
 
+        }
+
+        void OnHistory(System.Object sender, System.EventArgs e)
+        {
+            
         }
     }
 }

@@ -33,7 +33,7 @@
             
             <Editor BackgroundColor="AliceBlue"  x:Name="CommandEditor" Placeholder="input the position and command" HeightRequest="100" ></Editor>
             <Button Text="Execute Commands" Clicked="OnExecuteCommand"></Button>
-            <Button Text="Save History" Clicked="Button_Clicked"></Button>
+            <Button Text="Save History" Clicked="OnHistory"></Button>
         </StackLayout>
     </Grid>
         </ScrollView>

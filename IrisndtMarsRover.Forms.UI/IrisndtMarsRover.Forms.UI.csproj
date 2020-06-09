@@ -23,4 +23,9 @@
     <ItemGroup>
       <Compile Remove="Pages\TipView.xaml.cs" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Pages\HistoryView.xaml.cs">
+        <DependentUpon>HistoryView.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>

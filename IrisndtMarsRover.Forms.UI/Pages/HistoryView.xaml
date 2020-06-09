@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:HistoryViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:IrisndtMarsRover.Core.ViewModels;assembly=IrisndtMarsRover.Core"
+    x:Class="IrisndtMarsRover.Forms.UI.Pages.HistoryView" x:Name="HomeView" Padding="20,50,20,20" >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="History" FontSize="Large" VerticalTextAlignment="Start"></Label>
+            <ListView ItemsSource="{Binding Historydata}"></ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</views:MvxContentPage>
