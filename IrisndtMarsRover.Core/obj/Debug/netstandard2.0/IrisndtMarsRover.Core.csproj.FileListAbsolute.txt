@@ -1,9 +1,0 @@
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/bin/Debug/netstandard2.0/IrisndtMarsRover.Core.deps.json
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/bin/Debug/netstandard2.0/IrisndtMarsRover.Core.dll
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/bin/Debug/netstandard2.0/IrisndtMarsRover.Core.pdb
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.csprojAssemblyReference.cache
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.AssemblyInfoInputs.cache
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.AssemblyInfo.cs
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.csproj.CoreCompileInputs.cache
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.dll
-/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Core/obj/Debug/netstandard2.0/IrisndtMarsRover.Core.pdb
