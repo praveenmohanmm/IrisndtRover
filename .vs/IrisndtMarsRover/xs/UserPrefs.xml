@@ -1,0 +1,55 @@
+﻿<Properties StartupConfiguration="{B1E24BD5-C273-427A-A0B9-C6F8A7AE73D6}|Default">
+  <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.UI/Pages/TipView.xaml.cs">
+    <Files>
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/TipView.xaml.cs" Line="141" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/TipView.xaml" />
+      <File FileName="IrisndtMarsRover.Core/Rover/Positions.cs" />
+      <File FileName="IrisndtMarsRover.Core/App.cs" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HomeViewModel.cs" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/TipViewModel.cs" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" />
+      <File FileName="IrisndtMarsRover.Forms.iOS/Main.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IrisndtMarsRover" expanded="True">
+            <Node name="IrisndtMarsRover.Core" expanded="True">
+              <Node name="Rover" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+            </Node>
+            <Node name="IrisndtMarsRover.Forms.iOS" expanded="True" />
+            <Node name="IrisndtMarsRover.Forms.UI" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="HomeView.xaml" expanded="True" />
+                <Node name="TipView.xaml" expanded="True">
+                  <Node name="TipView.xaml.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>position.FlowPath[index].XPos * widthDensity</Value>
+          <Value>info.Height / 2</Value>
+          <Value>info.Width / 2</Value>
+          <Value>(position.FlowPath[index].YPos * heightDensity)</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C400FF39-D619-4FA7-ADBC-BB9AF82C9E1D" />
+</Properties>

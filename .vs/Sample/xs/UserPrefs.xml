@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sample.sln">
+    <Files>
+      <File FileName="Sample.Forms.Droid/MainActivity.cs" />
+      <File FileName="Sample.Core/App.cs" />
+      <File FileName="Sample.Forms.UI/FormsApp.xaml.cs" />
+      <File FileName="Sample.Core/Services/CalculationService.cs" />
+      <File FileName="Sample.Core/Services/ICalculationService.cs" />
+      <File FileName="Sample.Core/ViewModels/TipViewModel.cs" Line="5" Column="27" />
+      <File FileName="Sample.sln" Line="12" Column="35" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Sample" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Sample.Forms.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Sample.Forms.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C400FF39-D619-4FA7-ADBC-BB9AF82C9E1D" />
+</Properties>

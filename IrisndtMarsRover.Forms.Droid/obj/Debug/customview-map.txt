@@ -1,0 +1,49 @@
+@string/appbar_scrolling_view_behavior;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/flyoutcontent.xml
+@string/appbar_scrolling_view_behavior;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+alpha;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/enterfromleft.xml
+alpha;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/exittoleft.xml
+android.support.design.widget.AppBarLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/flyoutcontent.xml
+android.support.design.widget.AppBarLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+android.support.design.widget.AppBarLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/shellcontent.xml
+android.support.design.widget.BottomNavigationView;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/bottomtablayout.xml
+android.support.design.widget.CoordinatorLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/flyoutcontent.xml
+android.support.design.widget.CoordinatorLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+android.support.design.widget.CoordinatorLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/shellcontent.xml
+android.support.design.widget.TabLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+android.support.design.widget.TabLayout;obj/Debug/res/layout/tabbar.xml
+android.support.v7.widget.RecyclerView;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/flyoutcontent.xml
+android.support.v7.widget.Toolbar;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+android.support.v7.widget.Toolbar;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/shellcontent.xml
+android.support.v7.widget.Toolbar;obj/Debug/res/layout/toolbar.xml
+attr;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/mvxbindingattributes.xml
+cache-path;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+crc64720bb2db43a66fe9.FormsViewPager;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
+declare-styleable;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/mvxbindingattributes.xml
+external-cache-path;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+external-path;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+FrameLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/bottomtablayout.xml
+item;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/ids.xml
+item;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/mvxbindingattributes.xml
+item;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/values/styles.xml
+item;obj/Debug/res/values/styles.xml
+LinearLayout;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/bottomtablayout.xml
+LinearLayout;obj/Debug/res/layout/praveen.xml
+paths;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+resources;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/ids.xml
+resources;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/1/jl/res/values/mvxbindingattributes.xml
+resources;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/3/jl/res/values/strings.xml
+resources;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/values/styles.xml
+resources;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/5/jl/res/xml/empty.xml
+resources;obj/Debug/res/values/styles.xml
+set;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/enterfromleft.xml
+set;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/enterfromright.xml
+set;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/exittoleft.xml
+set;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/exittoright.xml
+string;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/3/jl/res/values/strings.xml
+style;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/values/styles.xml
+style;obj/Debug/res/values/styles.xml
+translate;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/enterfromleft.xml
+translate;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/enterfromright.xml
+translate;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/exittoleft.xml
+translate;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/anim/exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;/Users/praveenmohanm/Downloads/MvvmCross-Samples-master 2/TipCalc/IrisndtMarsRover.Forms.Droid/obj/Debug/lp/46/jl/res/layout/rootlayout.xml
