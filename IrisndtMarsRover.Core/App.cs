@@ -11,7 +11,7 @@ namespace IrisndtMarsRover.Core
         {
             
 
-            RegisterAppStart<TipViewModel>();
+            RegisterAppStart<HomeViewModel>();
         }
     }
 }
