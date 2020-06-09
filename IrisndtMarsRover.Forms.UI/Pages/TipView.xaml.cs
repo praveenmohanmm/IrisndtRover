@@ -65,13 +65,13 @@ LMLMLMLMM";
                 {
                     X = (int)startingPos.X,
                     Y = (int)startingPos.Y,
-                    Direction = Directions.N
+                    Direction = RoverDirection.N
                 };
 
                 var maxPoints = new List<int>() { rows, cols };
 
 
-                position.StartMoving(maxPoints, commands);
+                position.ProcessMovements(maxPoints, commands);
 
                 var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
                 outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();

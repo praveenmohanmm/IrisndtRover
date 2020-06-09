@@ -17,4 +17,10 @@
     <ItemGroup>
       <ProjectReference Include="..\IrisndtMarsRover.Core\IrisndtMarsRover.Core.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\TipView.xaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Pages\TipView.xaml.cs" />
+    </ItemGroup>
 </Project>

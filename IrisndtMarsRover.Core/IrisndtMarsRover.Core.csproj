@@ -9,4 +9,7 @@
     <ItemGroup>
       <Folder Include="Rover\" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="ViewModels\TipViewModel.cs" />
+    </ItemGroup>
 </Project>

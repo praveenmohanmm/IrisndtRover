@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace IrisndtMarsRover.Core
 {
-    public enum Directions
+    public enum RoverDirection
     {
-        N = 1,//North
-        S = 2,//South
-        E = 3,//East
-        W = 4//West
+        N = 1,
+        S = 2,
+        E = 3,
+        W = 4
     };
 
     public class RoverPoints
@@ -24,82 +24,84 @@ namespace IrisndtMarsRover.Core
 
     public interface IPosition
     {
-        void StartMoving(List<int> maxPoints, string moves);
+        void ProcessMovements(List<int> maxPoints, string commands);
     }
 
     public class Position : IPosition
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public Directions Direction { get; set; }
         public List<RoverPoints> FlowPath { get; set; }
+        public RoverDirection Direction { get; set; }
+        
 
         public Position()
         {
+
             X = Y = 0;
-            Direction = Directions.N;
+            Direction = RoverDirection.N;
             FlowPath = new List<RoverPoints>();
         }
 
-        private void Rotate90Left()
+        private void LeftRotation()
         {
             switch (this.Direction)
             {
-                case Directions.N:
-                    this.Direction = Directions.W;
+                case RoverDirection.N:
+                    this.Direction = RoverDirection.W;
                     break;
-                case Directions.S:
-                    this.Direction = Directions.E;
+                case RoverDirection.S:
+                    this.Direction = RoverDirection.E;
                     break;
-                case Directions.E:
-                    this.Direction = Directions.N;
+                case RoverDirection.E:
+                    this.Direction = RoverDirection.N;
                     break;
-                case Directions.W:
-                    this.Direction = Directions.S;
+                case RoverDirection.W:
+                    this.Direction = RoverDirection.S;
                     break;
                 default:
                     break;
             }
         }
 
-        private void Rotate90Right()
+        private void RightRotation()
         {
             switch (this.Direction)
             {
-                case Directions.N:
-                    this.Direction = Directions.E;
+                case RoverDirection.N:
+                    this.Direction = RoverDirection.E;
                     break;
-                case Directions.S:
-                    this.Direction = Directions.W;
+                case RoverDirection.S:
+                    this.Direction = RoverDirection.W;
                     break;
-                case Directions.E:
-                    this.Direction = Directions.S;
+                case RoverDirection.E:
+                    this.Direction = RoverDirection.S;
                     break;
-                case Directions.W:
-                    this.Direction = Directions.N;
+                case RoverDirection.W:
+                    this.Direction = RoverDirection.N;
                     break;
                 default:
                     break;
             }
         }
 
-        private void MoveInSameDirection()
+        private void MoveForward()
         {
             switch (this.Direction)
             {
-                case Directions.N:
+                case RoverDirection.N:
                     this.Y += 1;
                     FlowPath.Add(new RoverPoints(X, Y));
                     break;
-                case Directions.S:
+                case RoverDirection.S:
                     this.Y -= 1;
                     FlowPath.Add(new RoverPoints(X, Y));
                     break;
-                case Directions.E:
+                case RoverDirection.E:
                     this.X += 1;
                     FlowPath.Add(new RoverPoints(X, Y));
                     break; 
-                case Directions.W:
+                case RoverDirection.W:
                     this.X -= 1;
                     FlowPath.Add(new RoverPoints(X, Y));
                     break;
@@ -108,23 +110,20 @@ namespace IrisndtMarsRover.Core
             }
         }
 
-        public void StartMoving(List<int> maxPoints, string moves)
+        public void ProcessMovements(List<int> maxPoints, string moves)
         {
             foreach (var move in moves)
             {
                 switch (move)
                 {
                     case 'M':
-                        this.MoveInSameDirection();
+                        this.MoveForward();
                         break;
                     case 'L':
-                        this.Rotate90Left();
+                        this.LeftRotation();
                         break;
                     case 'R':
-                        this.Rotate90Right();
-                        break;
-                    default:
-                        Console.WriteLine($"Invalid Character {move}");
+                        this.RightRotation();
                         break;
                 }
 

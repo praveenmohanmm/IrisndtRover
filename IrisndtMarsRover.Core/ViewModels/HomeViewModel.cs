@@ -6,7 +6,7 @@ namespace IrisndtMarsRover.Core.ViewModels
 {
     public class HomeViewModel : MvxViewModel
     {
-
+        
         public HomeViewModel()
         {
 

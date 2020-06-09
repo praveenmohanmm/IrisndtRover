@@ -65,13 +65,13 @@ LMLMLMLMM";
                 {
                     X = (int)startingPos.X,
                     Y = (int)startingPos.Y,
-                    Direction = Directions.N
+                    Direction = RoverDirection.N
                 };
 
                 var maxPoints = new List<int>() { rows, cols };
 
 
-                position.StartMoving(maxPoints, commands);
+                position.ProcessMovements(maxPoints, commands);
 
                 var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
                 outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
@@ -87,10 +87,20 @@ LMLMLMLMM";
                 canvas.DrawPath(path, paint);
 
 
-                SKPaint circlePaint = new SKPaint
+                SKPaint circleRedPaint = new SKPaint
                 {
-                    Style = SKPaintStyle.Stroke,
+                    Style = SKPaintStyle.Fill,
                     Color = SKColors.Red,
+                    StrokeWidth = 5,
+                    StrokeCap = SKStrokeCap.Round,
+                    StrokeJoin = SKStrokeJoin.Round
+                };
+
+
+                SKPaint circleGreenPaint = new SKPaint
+                {
+                    Style = SKPaintStyle.Fill,
+                    Color = SKColors.Green,
                     StrokeWidth = 5,
                     StrokeCap = SKStrokeCap.Round,
                     StrokeJoin = SKStrokeJoin.Round
@@ -108,7 +118,11 @@ LMLMLMLMM";
                     canvas.DrawText(outputpath, new SKPoint(canvasView.CanvasSize.Width / 2, canvasView.CanvasSize.Height / 2), textPaint);
                 }
 
-                canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circlePaint);
+                // end pos
+                canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
+
+                // start pos
+                canvas.DrawCircle(new SKPoint( Convert.ToSingle( startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
 
             }
 
