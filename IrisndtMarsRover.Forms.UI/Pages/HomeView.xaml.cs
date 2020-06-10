@@ -24,6 +24,8 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         Point startingPos;
         string startingDirection;
         List<FlowPath> flowPath;
+        float finalXPos;
+        float finalYPos;
         public HomeView()
         {
             InitializeComponent();
@@ -113,10 +115,10 @@ LMLMLMLMM";
                     }
 
                     // end pos
-                    //canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
+                    canvas.DrawCircle(new SKPoint(finalXPos * widthDensity, canvasView.CanvasSize.Height - finalYPos * heightDensity), 15, circleRedPaint);
 
                     // start pos
-                    //canvas.DrawCircle(new SKPoint(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
+                    canvas.DrawCircle(new SKPoint(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
 
                 }
             }
@@ -190,10 +192,12 @@ LMLMLMLMM";
 
                 RoverService service = new RoverService();
                 RoverFinalPoints res = await service.GetFinalPoints(input);
-                if( res != null && res.FinalPoints.Count() > 0 )
+                if( res != null && res.FlowPath.Count() > 0 )
                 {
                     flowPath = res.FlowPath.ToList();
-                    outputpath = res.FinalPoints;
+                    finalXPos = float.Parse(res.FinalXPos);
+                    finalYPos = float.Parse(res.FinalYPos);
+                    outputpath = "Final Points : " + res.FinalXPos + " , " + res.FinalYPos;
                     canvasView.InvalidateSurface();
                 }
 

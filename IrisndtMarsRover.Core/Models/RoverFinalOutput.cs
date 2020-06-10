@@ -11,8 +11,10 @@ namespace IrisndtMarsRover.Core.Models
 
     public partial class RoverFinalPoints
     {
-        [JsonProperty("FinalPoints")]
-        public string FinalPoints { get; set; }
+        [JsonProperty("FinalXPos")]
+        public string FinalXPos{ get; set; }
+        [JsonProperty("FinalYPos")]
+        public string FinalYPos { get; set; }
 
         [JsonProperty("FlowPath")]
         public FlowPath[] FlowPath { get; set; }
