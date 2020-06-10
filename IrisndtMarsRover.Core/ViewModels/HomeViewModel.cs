@@ -3,6 +3,7 @@ using MvvmCross.ViewModels;
 using IrisndtMarsRover.Core;
 using MvvmCross.Navigation;
 using System;
+using IrisndtMarsRover.Core.Models;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
@@ -55,6 +56,11 @@ namespace IrisndtMarsRover.Core.ViewModels
             }
 
 
+        }
+
+        public void OnGetFinalPoints()
+        {
+           
         }
 
       

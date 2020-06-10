@@ -7,8 +7,11 @@ using SkiaSharp.Views.Forms;
 using IrisndtMarsRover.Core;
 using System.Collections.Generic;
 using System;
+
 using System.Linq;
 using IrisndtMarsRover.Forms.UI.interfaces;
+using IrisndtMarsRover.Core.Models;
+using IrisndtMarsRover.Core.Service;
 
 namespace IrisndtMarsRover.Forms.UI.Pages
 {
@@ -68,9 +71,10 @@ LMLMLMLMM";
                 {
                     Position position = new Position()
                     {
+
                         X = Convert.ToSingle(startingPos.X),
                         Y = Convert.ToSingle(startingPos.Y),
-                        Direction = RoverDirection.N
+                        Direction = (RoverDirection)Convert.ToInt16(startingDirection)
                     };
 
                     var maxPoints = new List<int>() { rows, cols };
@@ -189,6 +193,20 @@ LMLMLMLMM";
                 commands = commandsText[1];
 
 
+                RoverInput input = new RoverInput()
+                {
+                    commands = commands,
+                    startXPos = startingPos.X,
+                    startYPos = startingPos.Y,
+                    max = rows,
+                    startDirection = (int)(RoverDirection)Enum.Parse(typeof(RoverDirection), startingDirection)
+
+            };
+
+                RoverService service = new RoverService();
+                var res = service.GetFinalPoints(input);
+
+
                 canvasView.InvalidateSurface();
 
 
@@ -208,7 +226,10 @@ LMLMLMLMM";
 
             rows = maxPoints[0];
             cols = maxPoints[1];
-            if( rows != cols )
+
+ 
+
+            if ( rows != cols )
             {
                 await DisplayAlert("Error", "Rows and Cols should me same", "Cancel");
             }
