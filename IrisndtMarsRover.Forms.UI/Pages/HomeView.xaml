@@ -23,17 +23,20 @@
          <BoxView VerticalOptions="Center" HeightRequest="10" WidthRequest="10" BackgroundColor="Red"></BoxView>
          <Label Text="End Pos" TextColor="Black"></Label>
      </StackLayout>
-     <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
-         <sk:SKCanvasView x:Name="canvasView" BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand"
+     
+     <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" >
+         <sk:SKCanvasView   x:Name="canvasView" BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand"
                            PaintSurface="OnCanvasViewPaintSurface" />
      </StackLayout>
+
+     <Image  Opacity=".2" Grid.Row="1" Source="card.jpg" Aspect="AspectFill"></Image>
               
 
         <StackLayout Grid.Row="2">
             
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Entry HorizontalOptions="Start" Placeholder="size x,y" x:Name="SizeEntry" TextColor="Black" ></Entry>
-                <Button Text="Create" Clicked="OnCreateplateau" ></Button>
+                <Button Text="Create plateau" Clicked="OnCreateplateau" ></Button>
             </StackLayout>
             
             <Editor BackgroundColor="LightGray"  x:Name="CommandEditor" Placeholder="input the position and command" HeightRequest="100" ></Editor>

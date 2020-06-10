@@ -1,28 +1,31 @@
-﻿<Properties StartupConfiguration="{B1E24BD5-C273-427A-A0B9-C6F8A7AE73D6}|Default">
-  <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.192.168.56.102:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Core/Models/RoverInput.cs">
+﻿<Properties StartupConfiguration="{6E38F2AF-D556-465F-92E7-2B8020B80E25}|Default">
+  <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs">
     <Files>
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="21" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" Line="9" Column="88" />
-      <File FileName="IrisndtMarsRover.Forms.iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml.cs" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs" Line="43" Column="14" />
-      <File FileName="IrisndtMarsRover.Core/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/Service/RoverService.cs" Line="101" Column="32" />
-      <File FileName="IrisndtMarsRover.Core/Models/RoverInput.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="110" Column="59" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" />
+      <File FileName="IrisndtMarsRover.Forms.iOS/Main.cs" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml.cs" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HomeViewModel.cs" />
+      <File FileName="IrisndtMarsRover.Core/Service/RoverService.cs" />
+      <File FileName="IrisndtMarsRover.Core/Models/RoverInput.cs" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="IrisndtMarsRover" expanded="True">
-            <Node name="IrisndtMarsRover.Core" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="RoverInput.cs" selected="True" />
+            <Node name="IrisndtMarsRover.Forms.Droid" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True">
+                  <Node name="card.jpg" selected="True" />
+                </Node>
               </Node>
-              <Node name="Service" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
             </Node>
-            <Node name="IrisndtMarsRover.Forms.iOS" expanded="True" />
+            <Node name="IrisndtMarsRover.Forms.iOS" expanded="True">
+              <Node name="Resources" expanded="True" />
+            </Node>
             <Node name="IrisndtMarsRover.Forms.UI" expanded="True">
               <Node name="Pages" expanded="True">
                 <Node name="HistoryView.xaml" expanded="True" />

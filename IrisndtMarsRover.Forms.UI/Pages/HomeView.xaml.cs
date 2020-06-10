@@ -119,11 +119,11 @@ namespace IrisndtMarsRover.Forms.UI.Pages
                     // text paint for displaying the output text
                     using (var textPaint = new SKPaint())
                     {
-                        textPaint.TextSize = 30;
+                        textPaint.TextSize = 45;
                         textPaint.IsAntialias = true;
-                        textPaint.Color = SKColors.Red;
+                        textPaint.Color = SKColors.DarkRed;
                         textPaint.IsStroke = true;
-                        textPaint.StrokeWidth = 3;
+                        textPaint.StrokeWidth = 5;
                         textPaint.TextAlign = SKTextAlign.Center;
                         canvas.DrawText(outputpath, new SKPoint(canvasView.CanvasSize.Width / 2, canvasView.CanvasSize.Height / 2), textPaint);
                     }
