@@ -1,19 +1,27 @@
 ﻿<Properties StartupConfiguration="{B1E24BD5-C273-427A-A0B9-C6F8A7AE73D6}|Default">
   <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.192.168.56.102:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Core/Models/RoverFinalOutput.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs">
     <Files>
-      <File FileName="IrisndtMarsRover.Core/Service/RoverService.cs" Line="50" Column="68" />
+      <File FileName="IrisndtMarsRover.Core/Service/RoverService.cs" Line="49" Column="7" />
       <File FileName="IrisndtMarsRover.Core/Models/RoverFinalOutput.cs" Line="17" Column="35" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="IrisndtMarsRover" expanded="True">
             <Node name="IrisndtMarsRover.Core" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="RoverFinalOutput.cs" selected="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Service" expanded="True" />
+            </Node>
+            <Node name="IrisndtMarsRover.Forms.UI" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="HistoryView.xaml" expanded="True" />
+                <Node name="HomeView.xaml" expanded="True">
+                  <Node name="HomeView.xaml.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
@@ -25,6 +33,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Core/Service/RoverService.cs" relfile="IrisndtMarsRover.Core/Service/RoverService.cs" line="61" column="1" />
+      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Core/Service/RoverService.cs" relfile="IrisndtMarsRover.Core/Service/RoverService.cs" line="50" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

@@ -23,6 +23,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         bool drawPath;
         Point startingPos;
         string startingDirection;
+        List<FlowPath> flowPath;
         public HomeView()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
 LMLMLMLMM";
             CommandEditor.Text = val;
             NavigationPage.SetHasNavigationBar(this, false);
-            
+            flowPath = new List<FlowPath>();
 
         }
 
@@ -67,31 +68,15 @@ LMLMLMLMM";
 
             try
             {
-                if (drawPath)
+                if (drawPath && flowPath.Count > 0 )
                 {
-                    Position position = new Position()
-                    {
-
-                        X = Convert.ToSingle(startingPos.X),
-                        Y = Convert.ToSingle(startingPos.Y),
-                        Direction = (RoverDirection)Convert.ToInt16(startingDirection)
-                    };
-
-                    var maxPoints = new List<int>() { rows, cols };
-
-
-                    position.ProcessMovements(maxPoints, commands);
-
-                    var actualOutput = $"{position.X} {position.Y} {position.Direction.ToString()}";
-                    outputpath = "Final Pos : " + position.X.ToString() + " " + position.Y.ToString() + " " + position.Direction.ToString();
-
                     SKPath path = new SKPath();
 
                     path.MoveTo(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)));
 
-                    for (int index = 0; index < position.FlowPath.Count; index++)
+                    foreach(var item in flowPath)
                     {
-                        path.LineTo((position.FlowPath[index].XPos * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (position.FlowPath[index].YPos * heightDensity)));
+                        path.LineTo((item.XPos * widthDensity), Convert.ToSingle(canvasView.CanvasSize.Height - (item.YPos * heightDensity)));
                     }
                     canvas.DrawPath(path, paint);
 
@@ -128,10 +113,10 @@ LMLMLMLMM";
                     }
 
                     // end pos
-                    canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
+                    //canvas.DrawCircle(new SKPoint(position.X * widthDensity, canvasView.CanvasSize.Height - position.Y * heightDensity), 15, circleRedPaint);
 
                     // start pos
-                    canvas.DrawCircle(new SKPoint(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
+                    //canvas.DrawCircle(new SKPoint(Convert.ToSingle(startingPos.X * widthDensity), Convert.ToSingle((canvasView.CanvasSize.Height - (startingPos.Y * heightDensity)))), 15, circleGreenPaint);
 
                 }
             }
@@ -204,10 +189,15 @@ LMLMLMLMM";
             };
 
                 RoverService service = new RoverService();
-                var res = service.GetFinalPoints(input);
+                RoverFinalPoints res = await service.GetFinalPoints(input);
+                if( res != null && res.FinalPoints.Count() > 0 )
+                {
+                    flowPath = res.FlowPath.ToList();
+                    outputpath = res.FinalPoints;
+                    canvasView.InvalidateSurface();
+                }
 
-
-                canvasView.InvalidateSurface();
+              
 
 
             }
