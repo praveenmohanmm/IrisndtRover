@@ -208,7 +208,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
                 int numLines = CommandEditor.Text.Split('\n').Length;
                 if( numLines != 2 )
                 {
-                    await DisplayAlert("Error", "Maximum tow lines. first line is postion and next is commands", "Ok");
+                    await DisplayAlert("Error", "Maximum two lines. first line is postion and next is commands", "Ok");
                     return;
                 }
 

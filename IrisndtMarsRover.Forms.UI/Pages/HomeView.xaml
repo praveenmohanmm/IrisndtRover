@@ -33,18 +33,18 @@
               
 
         <StackLayout Grid.Row="2" BackgroundColor="AliceBlue">
-            
+            <Label Text="Enter the grid size in X X format like 3 3"></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                 <Entry HorizontalOptions="Start" Placeholder="size x,y" x:Name="SizeEntry" TextColor="Black" ></Entry>
                 <Button Text="Create plateau" Clicked="OnCreateplateau" ></Button>
             </StackLayout>
             
-            <Editor BackgroundColor="AliceBlue"  x:Name="CommandEditor" Placeholder="input the position and command" HeightRequest="100" ></Editor>
+            <Editor Margin="4,4,4,4" BackgroundColor="WhiteSmoke"  x:Name="CommandEditor" Placeholder="input the position and command" HeightRequest="100" ></Editor>
             <Button Text="Execute Commands" Clicked="OnExecuteCommand"></Button>
             <Button Text="Save Data" Clicked="OnSave"></Button>
             <Button Text="View History" Clicked="OnHistory"></Button>
         </StackLayout>
-     <ActivityIndicator HeightRequest="50" WidthRequest="50" IsVisible="false" Color="OrangeRed" VerticalOptions="Center" x:Name="LoadingIndicator" Grid.Row="1"  IsRunning="False" ></ActivityIndicator>
+     <ActivityIndicator HeightRequest="50" WidthRequest="50" IsVisible="false" Color="Green" VerticalOptions="Center" x:Name="LoadingIndicator" Grid.Row="1"  IsRunning="False" ></ActivityIndicator>
     </Grid>
         </ScrollView>
         
