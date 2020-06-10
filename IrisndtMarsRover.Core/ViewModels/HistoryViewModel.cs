@@ -6,10 +6,16 @@ using MvvmCross.Navigation;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
+    public class HistoryItem
+    {
+        public string Input { get; set; }
+        public string Output { get; set; }
+    }
+
     public class HistoryViewModel : MvxViewModel
     {
-        private List<string> historydata;
-        public List<string> Historydata
+        private List<HistoryItem> historydata;
+        public List<HistoryItem> Historydata
         {
            get
             {
@@ -19,13 +25,13 @@ namespace IrisndtMarsRover.Core.ViewModels
         }
         public HistoryViewModel()
         {
-            Historydata = new List<string>();
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
+            Historydata = new List<HistoryItem>();
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout"});
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout"});
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
+            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
         }
 
         public override async Task Initialize()

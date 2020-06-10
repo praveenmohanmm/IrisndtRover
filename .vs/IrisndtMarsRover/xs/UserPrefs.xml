@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{6E38F2AF-D556-465F-92E7-2B8020B80E25}|Default">
   <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.192.168.56.102:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs">
     <Files>
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="223" Column="81" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="225" Column="1" />
       <File FileName="IrisndtMarsRover.Forms.UI/interfaces/IScreenShotService.cs" Line="4" Column="40" />
-      <File FileName="IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs" Line="22" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs" Line="20" Column="10" />
       <File FileName="IrisndtMarsRover.Forms.iOS/IOSScreenShot.cs" Line="9" Column="46" />
-      <File FileName="IrisndtMarsRover.Forms.Droid/MainActivity.cs" Line="25" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/Rover/HomeViewModel.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.Droid/MainActivity.cs" Line="28" Column="6" />
+      <File FileName="IrisndtMarsRover.Core/Rover/HomeViewModel.cs" Line="9" Column="4" />
       <File FileName="../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="1548" Column="2" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" Line="12" Column="45" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml" Line="21" Column="56" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" Line="9" Column="88" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs" Line="9" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +19,9 @@
           <Node name="IrisndtMarsRover" expanded="True">
             <Node name="IrisndtMarsRover.Core" expanded="True">
               <Node name="Rover" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="HistoryViewModel.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="IrisndtMarsRover.Forms.Droid" expanded="True" />
             <Node name="IrisndtMarsRover.Forms.iOS" expanded="True" />
@@ -28,7 +31,7 @@
               </Node>
               <Node name="interfaces" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="HomeView.xaml" expanded="True" selected="True" />
+                <Node name="HomeView.xaml" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -40,9 +43,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Core/Rover/HomeViewModel.cs" relfile="IrisndtMarsRover.Core/Rover/HomeViewModel.cs" line="53" column="1" />
-      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" relfile="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" line="224" column="1" />
-      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs" relfile="IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs" line="21" column="1" />
+      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" relfile="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" line="225" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

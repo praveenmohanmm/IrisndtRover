@@ -9,7 +9,28 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="History" FontSize="Large" VerticalTextAlignment="Start"></Label>
-            <ListView ItemsSource="{Binding Historydata}"></ListView>
+            <ListView ItemsSource="{Binding Historydata}">
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+
+                            <Label Text="Input :"></Label>
+                            <Label Text="{Binding Input}"></Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+
+                            <Label Text="Output :"></Label>
+                            <Label Text="{Binding Output}"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 

@@ -6,6 +6,7 @@ using System;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
+   
     public class HomeViewModel : MvxViewModel
     {
         #region private
