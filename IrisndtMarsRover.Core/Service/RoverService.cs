@@ -109,7 +109,7 @@ namespace IrisndtMarsRover.Core.Service
                 JObject oJsonObject = new JObject();
                 oJsonObject.Add("input", input.input);
                 oJsonObject.Add("output", input.output);
-                oJsonObject.Add("image", "IMG");
+                oJsonObject.Add("image", input.image);
 
 
                 var content = new StringContent(oJsonObject.ToString(), Encoding.UTF8, "application/json");

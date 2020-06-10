@@ -12,6 +12,8 @@ using System.Linq;
 using IrisndtMarsRover.Forms.UI.interfaces;
 using IrisndtMarsRover.Core.Models;
 using IrisndtMarsRover.Core.Service;
+using System.Text;
+using System.IO;
 
 namespace IrisndtMarsRover.Forms.UI.Pages
 {
@@ -40,7 +42,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             drawPath = false;
             SizeEntry.Text = "5 5";
             string val = @"1 2 N
-                        LMLMLMLMM";
+            LMLMLMLMM";
             CommandEditor.Text = val;
             NavigationPage.SetHasNavigationBar(this, false);
             flowPath = new List<FlowPath>();
@@ -253,7 +255,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", "String is not in correct format", "Ok");
+                await DisplayAlert("Error", "String is not in the correct format or out of coorinates", "Ok");
                 ShowActivityControl(false);
             }
 
@@ -289,7 +291,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             catch(Exception ex)
             {
                 ShowActivityControl(false);
-                await DisplayAlert("Error", "String is notin correct format", "Ok");
+                await DisplayAlert("Error", "String is not in the correct format or out of coorinates", "Ok");
             }
          
             ShowActivityControl(false);
@@ -303,12 +305,18 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         async void OnSave(System.Object sender, System.EventArgs e)
         {
             ShowActivityControl(true);
+            var screnshot = DependencyService.Get<IScreenshotService>().Capture();
+
             RoverEntity input = new RoverEntity()
             {
                 input = "input : " + CommandEditor.Text,
                 output = outputpath
 
             };
+
+          
+            // add screenshot data to model
+            input.image = Encoding.UTF8.GetString(screnshot, 0, screnshot.Length);
 
             // invoke save web service, return true if success
             RoverService service = new RoverService();
