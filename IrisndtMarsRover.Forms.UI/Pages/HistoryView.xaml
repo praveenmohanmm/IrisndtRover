@@ -5,7 +5,7 @@
     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
     xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
     xmlns:viewModels="clr-namespace:IrisndtMarsRover.Core.ViewModels;assembly=IrisndtMarsRover.Core"
-    x:Class="IrisndtMarsRover.Forms.UI.Pages.HistoryView" x:Name="HomeView" Padding="20,50,20,20" >
+    x:Class="IrisndtMarsRover.Forms.UI.Pages.HistoryView" x:Name="HomeView" Padding="20,10,20,20" >
     <ContentPage.Content>
         <StackLayout>
             <Label Text="History" FontSize="Large" VerticalTextAlignment="Start"></Label>

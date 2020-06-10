@@ -26,6 +26,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         List<FlowPath> flowPath;
         float finalXPos;
         float finalYPos;
+        string finalFirection;
         public HomeView()
         {
             InitializeComponent();
@@ -206,7 +207,8 @@ LMLMLMLMM";
                     flowPath = res.FlowPath.ToList();
                     finalXPos = float.Parse(res.FinalXPos);
                     finalYPos = float.Parse(res.FinalYPos);
-                    outputpath = "Final Points : " + res.FinalXPos + " , " + res.FinalYPos;
+                    finalFirection = res.FinalDirection;
+                    outputpath = "Final Points : " + res.FinalXPos + " , " + res.FinalYPos + " Direction : " + finalFirection;
                     canvasView.InvalidateSurface();
                 }
 

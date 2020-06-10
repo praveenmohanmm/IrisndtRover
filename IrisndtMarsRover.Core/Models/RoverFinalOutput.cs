@@ -18,6 +18,8 @@ namespace IrisndtMarsRover.Core.Models
 
         [JsonProperty("FlowPath")]
         public FlowPath[] FlowPath { get; set; }
+        [JsonProperty("FinalDirection")]
+        public string FinalDirection { get; set; }
     }
 
     public partial class FlowPath
