@@ -13,6 +13,7 @@
     <ItemGroup>
       <Folder Include="Pages\" />
       <Folder Include="Controls\" />
+      <Folder Include="interfaces\" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\IrisndtMarsRover.Core\IrisndtMarsRover.Core.csproj" />

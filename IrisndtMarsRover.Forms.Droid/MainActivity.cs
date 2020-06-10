@@ -5,7 +5,8 @@ using MvvmCross.Forms.Platforms.Android.Core;
 using MvvmCross.Forms.Platforms.Android.Views;
 using IrisndtMarsRover.Core;
 using IrisndtMarsRover.Forms.UI;
-
+using Xamarin.Forms;
+using TipCalc.Forms.Droid;
 
 namespace IrisndtMarsRover.Forms.Droid
 {
@@ -20,10 +21,9 @@ namespace IrisndtMarsRover.Forms.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            
-            //TabLayoutResource = Resource.Layout.Tabbar;
-            //ToolbarResource = Resource.Layout.Toolbar;
+
             base.OnCreate(bundle);
+            AndroidScreenShot._currentActivity = this;
         }
     }
 }

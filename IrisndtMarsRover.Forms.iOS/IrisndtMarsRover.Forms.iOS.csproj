@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="IOSScreenShot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IrisndtMarsRover.Core\IrisndtMarsRover.Core.csproj">

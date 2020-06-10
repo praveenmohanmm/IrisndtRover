@@ -8,6 +8,7 @@ using IrisndtMarsRover.Core;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using IrisndtMarsRover.Forms.UI.interfaces;
 
 namespace IrisndtMarsRover.Forms.UI.Pages
 {
@@ -27,6 +28,8 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             string val = @"1 2 N
 LMLMLMLMM";
             CommandEditor.Text = val;
+            NavigationPage.SetHasNavigationBar(this, false);
+            
 
         }
 
@@ -192,30 +195,33 @@ LMLMLMLMM";
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", "String is not in corecvt format", "Cancel");
+                await DisplayAlert("Error", "String is not in correct format", "Cancel");
             }
 
 
         }
 
-        void OnCreateplateau(System.Object sender, System.EventArgs e)
+        async void OnCreateplateau(System.Object sender, System.EventArgs e)
         {
             drawPath = false;
             var maxPoints = SizeEntry.Text.Trim().Split(' ').Select(int.Parse).ToList();
 
-
             rows = maxPoints[0];
             cols = maxPoints[1];
-
-
-            canvasView.InvalidateSurface();
-            
-
+            if( rows != cols )
+            {
+                await DisplayAlert("Error", "Rows and Cols should me same", "Cancel");
+            }
+            else
+            {
+                canvasView.InvalidateSurface();
+            }
 
         }
 
         void OnHistory(System.Object sender, System.EventArgs e)
         {
+            var screenshot = DependencyService.Get<IScreenshotService>().Capture();
             AppStart.navigation.Navigate<HistoryViewModel>();
         }
     }
