@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -65,27 +66,67 @@ namespace IrisndtMarsRover.Core.Service
             
         }
 
+        public async Task<List<RoverEntity>> GetAllDatas()
+        {
 
-        //public async Task SaveScreenshot(TodoItem item, bool isNewItem = false)
-        //{
-        //    Uri uri = new Uri(string.Format(Constants.TodoItemsUrl, string.Empty));
+            try
+            {
+                List<RoverEntity> alldatas = new List<RoverEntity>();
+                HttpResponseMessage response = await _client.GetAsync("https://savescreenshot.azurewebsites.net/api/GetHistory?code=bZh8ZBMaW3srEshbFdKdm5w1cm8az43Ar2pFXcGeD/YaWFZi1eybBA==");
+                if (response.IsSuccessStatusCode)
+                {
+
+                    JsonSerializerSettings serSettings = new JsonSerializerSettings();
+                    serSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    var res = response.Content.ReadAsStringAsync().Result;
+                    res = JToken.Parse(res).ToString();
+                    serSettings.StringEscapeHandling = StringEscapeHandling.Default;
+                    alldatas = JsonConvert.DeserializeObject<List<RoverEntity>>(res, serSettings);
+                    return alldatas;
+                }
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
 
-        //    string json = JsonConvert.SerializeObject(item);
-        //    StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+        public async Task<bool> SaveData(RoverEntity input)
+        {
 
-        //    HttpResponseMessage response = null;
-        //    if (isNewItem)
-        //    {
-        //        response = await client.PostAsync(uri, content);
-        //    }
+            try
+            {
+                RoverFinalPoints finalData = new RoverFinalPoints();
+
+                JObject oJsonObject = new JObject();
+                oJsonObject.Add("input", input.input);
+                oJsonObject.Add("output", input.output);
+                oJsonObject.Add("image", "IMG");
 
 
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        Debug.WriteLine(@"\tTodoItem successfully saved.");
-        //    }
+                var content = new StringContent(oJsonObject.ToString(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _client.PostAsync("https://savescreenshot.azurewebsites.net/api/SaveToStorage?code=fRSf6ebJvgZj7JjUaabFGLT8uABeC/VrsTX8jU97P325wIfA0tbdyw==", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                    
+                }
 
-        //}
+                return false;
+
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+                return false;
+            }
+
+
+        }
+
     }
 }

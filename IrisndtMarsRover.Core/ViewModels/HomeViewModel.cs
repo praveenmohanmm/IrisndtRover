@@ -33,7 +33,7 @@ namespace IrisndtMarsRover.Core.ViewModels
             set { CommandsEntry = value; RaisePropertyChanged(() => CommandsEntry); }
         }
         #endregion
-        public HomeViewModel()
+        public  HomeViewModel()
         {
 
            
@@ -41,6 +41,8 @@ namespace IrisndtMarsRover.Core.ViewModels
 
         }
 
+
+   
         public override async Task Initialize()
         {
             await base.Initialize();

@@ -9,23 +9,17 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="History" FontSize="Large" VerticalTextAlignment="Start"></Label>
-            <ListView ItemsSource="{Binding Historydata}">
+            <ListView ItemsSource="{Binding Historydata}" RowHeight="100">
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="#eee"
-                        Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal">
-
-                            <Label Text="Input :"></Label>
-                            <Label Text="{Binding Input}"></Label>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal">
-
-                            <Label Text="Output :"></Label>
-                            <Label Text="{Binding Output}"></Label>
-                            </StackLayout>
+                        <StackLayout HeightRequest="100" BackgroundColor="AliceBlue"
+                        Orientation="Vertical" VerticalOptions="FillAndExpand">
+                            
+                            <Label HeightRequest="50" Text="{Binding Input}" VerticalOptions="FillAndExpand"></Label>
+                            
+                            <Label HeightRequest="50" Text="{Binding Output}" VerticalOptions="FillAndExpand"></Label>
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

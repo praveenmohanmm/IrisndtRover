@@ -43,7 +43,8 @@ LMLMLMLMM";
 
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
-     
+
+            
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -167,10 +168,18 @@ LMLMLMLMM";
 
         }
 
+        private void ShowActivityControl(bool val)
+        {
+            LoadingIndicator.IsRunning = val;
+            LoadingIndicator.IsVisible = val;
+        }
+
         async void OnExecuteCommand(System.Object sender, System.EventArgs e)
         {
             try
             {
+                ShowActivityControl(true);
+                var model = this.BindingContext as HomeViewModel;
                 drawPath = true;
                 var commandsText = CommandEditor.Text.Trim().Split('\n').ToList();
                 var startpos = commandsText[0].Split(' ').ToList();
@@ -188,7 +197,7 @@ LMLMLMLMM";
                     max = rows,
                     startDirection = (int)(RoverDirection)Enum.Parse(typeof(RoverDirection), startingDirection)
 
-            };
+                };
 
                 RoverService service = new RoverService();
                 RoverFinalPoints res = await service.GetFinalPoints(input);
@@ -201,20 +210,22 @@ LMLMLMLMM";
                     canvasView.InvalidateSurface();
                 }
 
-              
 
+                ShowActivityControl(false);
 
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", "String is not in correct format", "Cancel");
+                ShowActivityControl(false);
             }
 
-
+            ShowActivityControl(false);
         }
 
         async void OnCreateplateau(System.Object sender, System.EventArgs e)
         {
+            ShowActivityControl(true);
             drawPath = false;
             var maxPoints = SizeEntry.Text.Trim().Split(' ').Select(int.Parse).ToList();
 
@@ -231,13 +242,47 @@ LMLMLMLMM";
             {
                 canvasView.InvalidateSurface();
             }
-
+            ShowActivityControl(false);
         }
 
-        void OnHistory(System.Object sender, System.EventArgs e)
+
+        async void OnSave(System.Object sender, System.EventArgs e)
         {
-            var screenshot = DependencyService.Get<IScreenshotService>().Capture();
-            AppStart.navigation.Navigate<HistoryViewModel>();
+            ShowActivityControl(true);
+            RoverEntity input = new RoverEntity()
+            {
+                input = "input : " + CommandEditor.Text,
+                output = outputpath
+
+            };
+            RoverService service = new RoverService();
+            var res = await service.SaveData(input);
+            if(res)
+            {
+                await DisplayAlert("Success", "Saved to Azure", "Cancel");
+            }
+            ShowActivityControl(false);
+        }
+
+
+        /// <summary>
+        /// for navigating to history page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void OnHistory(System.Object sender, System.EventArgs e)
+        {
+            ShowActivityControl(true);
+
+            RoverService service = new RoverService();
+            var res = await service.GetAllDatas();
+            if (res != null)
+            {
+                await AppStart.navigation.Navigate<HistoryViewModel, List<RoverEntity>>(res);
+            }
+            ShowActivityControl(false);
+           
+            
         }
     }
 }

@@ -3,6 +3,8 @@ using MvvmCross.ViewModels;
 using IrisndtMarsRover.Core;
 using System.Collections.Generic;
 using MvvmCross.Navigation;
+using IrisndtMarsRover.Core.Models;
+using System.Collections.ObjectModel;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
@@ -12,10 +14,10 @@ namespace IrisndtMarsRover.Core.ViewModels
         public string Output { get; set; }
     }
 
-    public class HistoryViewModel : MvxViewModel
+    public class HistoryViewModel : MvxViewModel<List<RoverEntity>>
     {
-        private List<HistoryItem> historydata;
-        public List<HistoryItem> Historydata
+        private ObservableCollection<HistoryItem> historydata;
+        public ObservableCollection<HistoryItem> Historydata
         {
            get
             {
@@ -25,14 +27,21 @@ namespace IrisndtMarsRover.Core.ViewModels
         }
         public HistoryViewModel()
         {
-            Historydata = new List<HistoryItem>();
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout"});
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout"});
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
-            Historydata.Add(new HistoryItem() { Input = "hello", Output = "outout" });
+            Historydata = new ObservableCollection<HistoryItem>();
         }
+
+
+        public override void Prepare(List<RoverEntity> parameter)
+        {
+            Historydata.Clear();
+            foreach(var item in parameter)
+            {
+                Historydata.Add( new HistoryItem() {  Input = item.input, Output = item.output } );
+            }
+           
+
+        }
+
 
         public override async Task Initialize()
         {
