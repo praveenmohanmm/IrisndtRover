@@ -11,6 +11,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         public HistoryView()
         {
             InitializeComponent();
+            
         }
     }
 }

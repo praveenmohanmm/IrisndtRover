@@ -2,6 +2,7 @@
 using MvvmCross.ViewModels;
 using IrisndtMarsRover.Core;
 using System.Collections.Generic;
+using MvvmCross.Navigation;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
@@ -18,19 +19,20 @@ namespace IrisndtMarsRover.Core.ViewModels
         }
         public HistoryViewModel()
         {
-
+            Historydata = new List<string>();
+            Historydata.Add("helllow");
+            Historydata.Add("helllow");
+            Historydata.Add("helllow");
+            Historydata.Add("helllow");
+            Historydata.Add("helllow");
+            Historydata.Add("helllow");
         }
 
         public override async Task Initialize()
         {
             await base.Initialize();
             
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
-            Historydata.Add("helllow");
+            
 
 
 

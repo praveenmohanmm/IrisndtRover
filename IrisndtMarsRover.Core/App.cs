@@ -10,7 +10,7 @@ namespace IrisndtMarsRover.Core
         public override void Initialize()
         {
 
-            RegisterAppStart<HomeViewModel>();
+            RegisterCustomAppStart<AppStart>();
         }
     }
 }

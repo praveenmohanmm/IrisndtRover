@@ -216,7 +216,7 @@ LMLMLMLMM";
 
         void OnHistory(System.Object sender, System.EventArgs e)
         {
-            
+            AppStart.navigation.Navigate<HistoryViewModel>();
         }
     }
 }
