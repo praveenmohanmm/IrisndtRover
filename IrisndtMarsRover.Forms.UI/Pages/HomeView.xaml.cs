@@ -17,23 +17,30 @@ namespace IrisndtMarsRover.Forms.UI.Pages
 {
     public partial class HomeView : MvxContentPage<HomeViewModel>
     {
+        #region input variables
         int rows, cols;
         string commands;
         string outputpath;
         bool drawPath;
         Point startingPos;
         string startingDirection;
+        #endregion
+
+
+        #region output variables
         List<FlowPath> flowPath;
         float finalXPos;
         float finalYPos;
         string finalFirection;
+        #endregion
+
         public HomeView()
         {
             InitializeComponent();
             drawPath = false;
             SizeEntry.Text = "5 5";
             string val = @"1 2 N
-LMLMLMLMM";
+                        LMLMLMLMM";
             CommandEditor.Text = val;
             NavigationPage.SetHasNavigationBar(this, false);
             flowPath = new List<FlowPath>();
@@ -41,11 +48,15 @@ LMLMLMLMM";
         }
 
 
-
+        /// <summary>
+        /// skia's rendering function all draw calls must be inside this function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
 
-            
+            // canvas creation
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -60,18 +71,19 @@ LMLMLMLMM";
             };
 
 
-
+            // canvas is divived in to graph coordinates each coorinates size is respect to the screen width / height
             float widthDensity = Convert.ToSingle(canvasView.CanvasSize.Width / cols);
-
             float heightDensity = Convert.ToSingle(canvasView.CanvasSize.Height / rows);
 
             canvas.Clear();
 
-
+            // draw grid in the canvas
             SetupCanvas(args);
 
             try
             {
+                // draw line path only when the path is ready
+                // path will be getting from server
                 if (drawPath && flowPath.Count > 0 )
                 {
                     SKPath path = new SKPath();
@@ -84,7 +96,7 @@ LMLMLMLMM";
                     }
                     canvas.DrawPath(path, paint);
 
-
+                    // end point circle paint
                     SKPaint circleRedPaint = new SKPaint
                     {
                         Style = SKPaintStyle.Fill,
@@ -94,7 +106,7 @@ LMLMLMLMM";
                         StrokeJoin = SKStrokeJoin.Round
                     };
 
-
+                    // start point circle green paint
                     SKPaint circleGreenPaint = new SKPaint
                     {
                         Style = SKPaintStyle.Fill,
@@ -104,7 +116,7 @@ LMLMLMLMM";
                         StrokeJoin = SKStrokeJoin.Round
                     };
 
-
+                    // text paint for displaying the output text
                     using (var textPaint = new SKPaint())
                     {
                         textPaint.TextSize = 30;
@@ -129,19 +141,19 @@ LMLMLMLMM";
                 DisplayAlert("Error", "Out of Coordinate system", "Cancel");
             }
 
-           
-
-
         }
 
-
+        /// <summary>
+        /// draw grid lines in the canvas
+        /// </summary>
+        /// <param name="args"></param>
         void SetupCanvas(SKPaintSurfaceEventArgs args)
         {
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
 
-
+            // gray color line paint
             SKPaint graphPaint = new SKPaint
             {
                 Style = SKPaintStyle.Stroke,
@@ -151,12 +163,13 @@ LMLMLMLMM";
                 StrokeJoin = SKStrokeJoin.Round
             };
 
-
+            // canvas is divived in to graph coordinates each coorinates size is respect to the screen width / height
             float widthDensity = Convert.ToSingle(canvasView.CanvasSize.Width / rows);
             float heightDensity = Convert.ToSingle(canvasView.CanvasSize.Height / rows);
 
             canvas.Clear();
             int radious = 5;
+            // draw grid lines vertically and horizontally
             for (int index = 0; index < rows + 1; index++)
             {
                 canvas.DrawCircle(new SKPoint(index * widthDensity, 0), radious, graphPaint);
@@ -169,17 +182,37 @@ LMLMLMLMM";
 
         }
 
+        /// <summary>
+        /// display progress bar
+        /// </summary>
+        /// <param name="val"></param>
         private void ShowActivityControl(bool val)
         {
             LoadingIndicator.IsRunning = val;
             LoadingIndicator.IsVisible = val;
         }
 
+
+        /// <summary>
+        /// for executing the rover com,mand in the text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnExecuteCommand(System.Object sender, System.EventArgs e)
         {
             try
             {
+                // max lie is two, first line is postion and next is commands
+                int numLines = CommandEditor.Text.Split('\n').Length;
+                if( numLines != 2 )
+                {
+                    await DisplayAlert("Error", "Maximum tow lines. first line is postion and next is commands", "Ok");
+                    return;
+                }
+
                 ShowActivityControl(true);
+
+                // parse input from the text box
                 var model = this.BindingContext as HomeViewModel;
                 drawPath = true;
                 var commandsText = CommandEditor.Text.Trim().Split('\n').ToList();
@@ -189,7 +222,7 @@ LMLMLMLMM";
                 startingDirection = startpos[2].ToString();
                 commands = commandsText[1];
 
-
+                // create input for web service from the commands and first pos
                 RoverInput input = new RoverInput()
                 {
                     commands = commands,
@@ -200,6 +233,8 @@ LMLMLMLMM";
 
                 };
 
+                // invoke web service, whuch will return final postion of the rover and flow paths
+                // services are developer and hosteed in azure portal using azure functions
                 RoverService service = new RoverService();
                 RoverFinalPoints res = await service.GetFinalPoints(input);
                 if( res != null && res.FlowPath.Count() > 0 )
@@ -218,36 +253,53 @@ LMLMLMLMM";
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", "String is not in correct format", "Cancel");
+                await DisplayAlert("Error", "String is not in correct format", "Ok");
                 ShowActivityControl(false);
             }
 
             ShowActivityControl(false);
         }
 
+        /// <summary>
+        /// Create surface for rendering all skia works
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnCreateplateau(System.Object sender, System.EventArgs e)
         {
-            ShowActivityControl(true);
-            drawPath = false;
-            var maxPoints = SizeEntry.Text.Trim().Split(' ').Select(int.Parse).ToList();
-
-            rows = maxPoints[0];
-            cols = maxPoints[1];
-
- 
-
-            if ( rows != cols )
+            try
             {
-                await DisplayAlert("Error", "Rows and Cols should me same", "Cancel");
+                ShowActivityControl(true);
+                drawPath = false;
+
+                // parse inputs
+                var maxPoints = SizeEntry.Text.Trim().Split(' ').Select(int.Parse).ToList();
+                rows = maxPoints[0];
+                cols = maxPoints[1];
+
+                if (rows != cols)
+                {
+                    await DisplayAlert("Error", "Rows and Cols should me same", "Ok");
+                }
+                else
+                {
+                    canvasView.InvalidateSurface();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                canvasView.InvalidateSurface();
+                ShowActivityControl(false);
+                await DisplayAlert("Error", "String is notin correct format", "Ok");
             }
+         
             ShowActivityControl(false);
         }
 
-
+        /// <summary>
+        /// save current screenshot and input commands and output position
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnSave(System.Object sender, System.EventArgs e)
         {
             ShowActivityControl(true);
@@ -257,11 +309,13 @@ LMLMLMLMM";
                 output = outputpath
 
             };
+
+            // invoke save web service, return true if success
             RoverService service = new RoverService();
             var res = await service.SaveData(input);
             if(res)
             {
-                await DisplayAlert("Success", "Saved to Azure", "Cancel");
+                await DisplayAlert("Success", "Saved to Azure", "ok");
             }
             ShowActivityControl(false);
         }

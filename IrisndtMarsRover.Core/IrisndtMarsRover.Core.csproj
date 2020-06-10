@@ -8,11 +8,11 @@
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Rover\" />
       <Folder Include="Service\" />
       <Folder Include="Models\" />
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="ViewModels\TipViewModel.cs" />
+      <Compile Remove="Rover\Positions.cs" />
     </ItemGroup>
 </Project>

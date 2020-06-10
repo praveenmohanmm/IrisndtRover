@@ -30,7 +30,10 @@ namespace IrisndtMarsRover.Core.ViewModels
             Historydata = new ObservableCollection<HistoryItem>();
         }
 
-
+        /// <summary>
+        /// view model prepare function
+        /// </summary>
+        /// <param name="parameter"></param>
         public override void Prepare(List<RoverEntity> parameter)
         {
             Historydata.Clear();
@@ -38,19 +41,16 @@ namespace IrisndtMarsRover.Core.ViewModels
             {
                 Historydata.Add( new HistoryItem() {  Input = item.input, Output = item.output } );
             }
-           
 
         }
 
-
+        /// <summary>
+        /// initialize
+        /// </summary>
+        /// <returns></returns>
         public override async Task Initialize()
         {
             await base.Initialize();
-            
-            
-
-
-
         }
 
 

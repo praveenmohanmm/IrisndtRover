@@ -18,15 +18,18 @@ namespace IrisndtMarsRover.Core.Service
 
         public RoverService()
         {
-            
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Add("Accept", "application/json");
             _client.DefaultRequestHeaders.Add("Content", "application/json");
         }
 
+        /// <summary>
+        /// call get points service hosted in azure
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public async Task<RoverFinalPoints> GetFinalPoints(RoverInput input)
         {
-            
             try
             {
                 RoverFinalPoints finalData = new RoverFinalPoints();
@@ -50,22 +53,20 @@ namespace IrisndtMarsRover.Core.Service
                     serSettings.StringEscapeHandling =  StringEscapeHandling.Default;
                     finalData = JsonConvert.DeserializeObject<RoverFinalPoints>(res, serSettings);
                 }
-
-            
                 return finalData;
-
-        
             }
-            
             catch (Exception ex)
             {
                 Debug.WriteLine("\tERROR {0}", ex.Message);
                 return null;
             }
-
             
         }
 
+        /// <summary>
+        /// Get the entire history of inouts 
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<RoverEntity>> GetAllDatas()
         {
 
@@ -93,7 +94,11 @@ namespace IrisndtMarsRover.Core.Service
             }
         }
 
-
+        /// <summary>
+        /// save screen shots and all other in-outs to azure
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public async Task<bool> SaveData(RoverEntity input)
         {
 
