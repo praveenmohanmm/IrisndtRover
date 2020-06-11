@@ -14,6 +14,7 @@ using IrisndtMarsRover.Core.Models;
 using IrisndtMarsRover.Core.Service;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace IrisndtMarsRover.Forms.UI.Pages
 {
@@ -41,9 +42,6 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             InitializeComponent();
             drawPath = false;
             SizeEntry.Text = "5 5";
-            string val = @"1 2 N
-            LMLMLMLMM";
-            CommandEditor.Text = val;
             NavigationPage.SetHasNavigationBar(this, false);
             flowPath = new List<FlowPath>();
 
@@ -140,7 +138,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", "Out of Coordinate system", "Cancel");
+                DisplayAlert(Constants.Error, Constants.OutofCordinates, Constants.Ok);
             }
 
         }
@@ -181,7 +179,6 @@ namespace IrisndtMarsRover.Forms.UI.Pages
                 canvas.DrawLine(index * widthDensity, 0, index * widthDensity, canvasView.CanvasSize.Height, graphPaint);
                 canvas.DrawLine(0, index * heightDensity, canvasView.CanvasSize.Width, index * heightDensity, graphPaint);
             }
-
         }
 
         /// <summary>
@@ -204,11 +201,11 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         {
             try
             {
-                // max lie is two, first line is postion and next is commands
+                // max line is two, first line is postion and next is commands
                 int numLines = CommandEditor.Text.Split('\n').Length;
                 if( numLines != 2 )
                 {
-                    await DisplayAlert("Error", "Maximum two lines. first line is postion and next is commands", "Ok");
+                    await DisplayAlert(Constants.Error, Constants.CommandInvalid, Constants.Ok);
                     return;
                 }
 
@@ -254,7 +251,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", "String is not in the correct format or out of coorinates", "Ok");
+                await DisplayAlert(Constants.Error, Constants.OutofCordinates, Constants.Ok);
                 ShowActivityControl(false);
             }
 
@@ -270,17 +267,28 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         {
             try
             {
+                if (SizeEntry.Text.Length == 0 )
+                {
+                    await DisplayAlert(Constants.Error, Constants.InvalidInput, Constants.Ok);
+                    return;
+                }
+                    
+
                 ShowActivityControl(true);
                 drawPath = false;
 
                 // parse inputs
-                var maxPoints = SizeEntry.Text.Trim().Split(' ').Select(int.Parse).ToList();
-                rows = maxPoints[0];
-                cols = maxPoints[1];
+                var maxPoints = SizeEntry.Text.Replace(" ", "").ToList();
+                rows = Int32.Parse(maxPoints[0].ToString());
+                cols = Int32.Parse(maxPoints[1].ToString());
 
                 if (rows != cols)
                 {
-                    await DisplayAlert("Error", "Rows and Cols should me same", "Ok");
+                    await DisplayAlert(Constants.Error, Constants.RowColError, Constants.Ok);
+                }
+                else if( (rows > 9 || cols > 9 ) || 0 == rows || 0 == cols)
+                {
+                    await DisplayAlert(Constants.Error, Constants.RowMax, Constants.Ok);
                 }
                 else
                 {
@@ -290,7 +298,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             catch(Exception ex)
             {
                 ShowActivityControl(false);
-                await DisplayAlert("Error", "String is not in the correct format or out of coorinates", "Ok");
+                await DisplayAlert(Constants.Error, Constants.OutofCordinates, Constants.Ok);
             }
          
             ShowActivityControl(false);
@@ -303,6 +311,12 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         /// <param name="e"></param>
         async void OnSave(System.Object sender, System.EventArgs e)
         {
+            if(outputpath == null || outputpath.Length == 0)
+            {
+                await DisplayAlert(Constants.Error, Constants.InvalidInput, Constants.Ok);
+                return;
+            }
+
             ShowActivityControl(true);
             var screnshot = DependencyService.Get<IScreenshotService>().Capture();
 
@@ -322,7 +336,7 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             var res = await model.SaveScreenShotData(input);
             if (res)
             {
-                await DisplayAlert("Success", "Saved to Azure", "ok");
+                await DisplayAlert("Success", Constants.SavedToServer, Constants.Ok);
             }
             ShowActivityControl(false);
         }

@@ -13,10 +13,10 @@
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout HeightRequest="100" BackgroundColor="AliceBlue"
+                        <StackLayout HeightRequest="100" BackgroundColor="AliceBlue" Padding="10,10,10,10"
                         Orientation="Vertical" VerticalOptions="FillAndExpand">
                             
-                            <Label HeightRequest="50" Text="{Binding Input}" VerticalOptions="FillAndExpand"></Label>
+                            <Label  HeightRequest="50" Text="{Binding Input}" VerticalOptions="FillAndExpand"></Label>
                             
                             <Label HeightRequest="50" Text="{Binding Output}" VerticalOptions="FillAndExpand"></Label>
                             

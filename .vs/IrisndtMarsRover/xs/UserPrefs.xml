@@ -1,37 +1,27 @@
 ﻿<Properties StartupConfiguration="{B1E24BD5-C273-427A-A0B9-C6F8A7AE73D6}|Default">
   <MonoDevelop.Ide.ItemProperties.IrisndtMarsRover.Forms.Droid PreferredExecutionTarget="Android.192.168.56.102:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs">
     <Files>
-      <File FileName="IrisndtMarsRover.Core/ViewModels/HomeViewModel.cs" Line="111" Column="45" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" Line="45" Column="77" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.iOS/Main.cs" Line="7" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="318" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs" Line="30" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/App.cs" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Core/AppStart.cs" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/FormsApp.xaml.cs" Line="1" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.UI/FormsApp.xaml" Line="11" Column="21" />
-      <File FileName="IrisndtMarsRover.Core/Service/RoverService.cs" Line="123" Column="1" />
-      <File FileName="IrisndtMarsRover.Forms.iOS/IOSScreenShot.cs" Line="24" Column="66" />
-      <File FileName="IrisndtMarsRover.Forms.Droid/AnddroidScreenShot.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" Line="317" Column="24" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml" Line="44" Column="76" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Core/ViewModels/HistoryViewModel.cs" Line="1" Column="1" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml" Line="16" Column="106" />
+      <File FileName="IrisndtMarsRover.Forms.UI/Constants.cs" Line="9" Column="45" />
+      <File FileName="IrisndtMarsRover.Forms.iOS/Main.cs" Line="17" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="IrisndtMarsRover" expanded="True">
-            <Node name="IrisndtMarsRover.Core" expanded="True">
-              <Node name="Models" expanded="True" />
-              <Node name="Service" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
-            </Node>
-            <Node name="IrisndtMarsRover.Forms.Droid" expanded="True">
-              <Node name="AnddroidScreenShot.cs" selected="True" />
-            </Node>
+            <Node name="IrisndtMarsRover.Core" expanded="True" />
             <Node name="IrisndtMarsRover.Forms.iOS" expanded="True" />
             <Node name="IrisndtMarsRover.Forms.UI" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="HomeView.xaml" expanded="True" />
+                <Node name="HistoryView.xaml" expanded="True" />
+                <Node name="HomeView.xaml" expanded="True">
+                  <Node name="HomeView.xaml.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="FormsApp.xaml" expanded="True" />
             </Node>
@@ -40,10 +30,11 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>this.BindingContext</Value>
-          <Value>this.BindingContext as HistoryViewModel</Value>
+          <Value>Regex.IsMatch(SizeEntry.Text, @"/^\d[\d ]*\d$/")</Value>
           <Value>this</Value>
           <Value>input.image.Length</Value>
+          <Value>SizeEntry.Text.Trim()</Value>
+          <Value>Convert.ToInt16(maxPoints[0])</Value>
         </State>
       </Pad>
     </Pads>
@@ -55,6 +46,7 @@
       <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Core/Service/RoverService.cs" relfile="IrisndtMarsRover.Core/Service/RoverService.cs" line="60" column="1" />
       <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml.cs" relfile="IrisndtMarsRover.Forms.UI/Pages/HistoryView.xaml.cs" line="19" column="1" />
       <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Core/Service/RoverService.cs" relfile="IrisndtMarsRover.Core/Service/RoverService.cs" line="123" column="1" />
+      <Breakpoint file="/Users/praveenmohanm/Documents/GitHub/IrisndtRover/IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" relfile="IrisndtMarsRover.Forms.UI/Pages/HomeView.xaml.cs" line="314" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

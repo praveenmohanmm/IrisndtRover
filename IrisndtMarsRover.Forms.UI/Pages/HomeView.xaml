@@ -31,18 +31,17 @@
 
      <Image  Opacity=".2" Grid.Row="1" Source="card.jpg" Aspect="AspectFill"></Image>
               
-
-        <StackLayout Grid.Row="2" BackgroundColor="AliceBlue">
+        <StackLayout Grid.Row="2" BackgroundColor="AliceBlue" >
             <Label Text="{Binding GridSizeEntryHeading}"></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                <Entry HorizontalOptions="Start" Placeholder="size x,y" x:Name="SizeEntry" TextColor="Black" ></Entry>
+                <Entry HorizontalOptions="Start" Placeholder="size X X" x:Name="SizeEntry" TextColor="Black" MaxLength="3" ></Entry>
                 <Button Text="{Binding PlateauHeading}" Clicked="OnCreateplateau" ></Button>
             </StackLayout>
             
-            <Editor Margin="4,4,4,4" BackgroundColor="WhiteSmoke"  x:Name="CommandEditor" Placeholder="input the position and command" HeightRequest="100" ></Editor>
-            <Button Text="{Binding ExecuteCommandHeading}" Clicked="OnExecuteCommand"></Button>
-            <Button Text="{Binding SaveDataHeading}" Clicked="OnSave"></Button>
-            <Button Text="{Binding ViewHistoryHeading}" Clicked="OnHistory"></Button>
+            <Editor Margin="4,4,4,4" BackgroundColor="WhiteSmoke"  x:Name="CommandEditor" Placeholder="Formt is as below&#10;1 2 N &#10;LMLMLMLMM" HeightRequest="100"  Text="1 2 N &#10;LMLMLMLMM"></Editor>
+            <Button Text="{Binding ExecuteCommandHeading}" Clicked="OnExecuteCommand"  ></Button>
+            <Button Text="{Binding SaveDataHeading}" Clicked="OnSave" ></Button>
+            <Button Text="{Binding ViewHistoryHeading}" Clicked="OnHistory" ></Button>
         </StackLayout>
      <ActivityIndicator HeightRequest="50" WidthRequest="50" IsVisible="false" Color="Green" VerticalOptions="Center" x:Name="LoadingIndicator" Grid.Row="1"  IsRunning="False" ></ActivityIndicator>
     </Grid>

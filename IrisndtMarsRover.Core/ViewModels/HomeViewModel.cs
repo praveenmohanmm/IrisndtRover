@@ -67,18 +67,37 @@ namespace IrisndtMarsRover.Core.ViewModels
             get;set;
         }
 
-       
- 
+
+
         #endregion
+
+        public HomeViewModel()
+        {
+            try
+            {
+                StartingHeading = "Starting Pos";
+                EndHeading = "Ending Pos";
+                GridSizeEntryHeading = "Enter the grid size in X X format like 3 3";
+                PlateauHeading = "Create plateau";
+                ExecuteCommandHeading = "Execute Commands";
+                SaveDataHeading = "Save Data";
+                ViewHistoryHeading = "View History";                
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message);
+            }
+        }
 
         public override void Prepare()
         {
             // This is the first method to be called after construction
+            
         }
 
         public override Task Initialize()
         {
-            // Async initialization, YEY!
+            // Async initialization,
 
             return base.Initialize();
         }
@@ -124,26 +143,5 @@ namespace IrisndtMarsRover.Core.ViewModels
             return res;
         }
 
-
-
-        public  HomeViewModel()
-        {
-            try
-            {
-                StartingHeading = "Starting Pos";
-                EndHeading = "Ending Pos";
-                GridSizeEntryHeading = "Enter the grid size in X X format like 3 3";
-                PlateauHeading = "Create plateau";
-                ExecuteCommandHeading = "Execute Commands";
-                SaveDataHeading = "Save Data";
-                ViewHistoryHeading = "View History";
-            }
-            catch(Exception ex)
-            {
-                System.Diagnostics.Debug.Write(ex.Message);
-            }
-        }
-
-      
     }
 }
