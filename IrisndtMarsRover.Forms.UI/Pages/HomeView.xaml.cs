@@ -215,7 +215,6 @@ namespace IrisndtMarsRover.Forms.UI.Pages
                 ShowActivityControl(true);
 
                 // parse input from the text box
-                var model = this.BindingContext as HomeViewModel;
                 drawPath = true;
                 var commandsText = CommandEditor.Text.Trim().Split('\n').ToList();
                 var startpos = commandsText[0].Split(' ').ToList();
@@ -237,9 +236,9 @@ namespace IrisndtMarsRover.Forms.UI.Pages
 
                 // invoke web service, whuch will return final postion of the rover and flow paths
                 // services are developer and hosteed in azure portal using azure functions
-                RoverService service = new RoverService();
-                RoverFinalPoints res = await service.GetFinalPoints(input);
-                if( res != null && res.FlowPath.Count() > 0 )
+                HomeViewModel model = (HomeViewModel)this.BindingContext.DataContext;
+                var res = await model.GetFinalPosFromAzure(input);
+                if( res != null )
                 {
                     flowPath = res.FlowPath.ToList();
                     finalXPos = float.Parse(res.FinalXPos);
@@ -319,9 +318,9 @@ namespace IrisndtMarsRover.Forms.UI.Pages
             input.image = Encoding.UTF8.GetString(screnshot, 0, screnshot.Length);
 
             // invoke save web service, return true if success
-            RoverService service = new RoverService();
-            var res = await service.SaveData(input);
-            if(res)
+            HomeViewModel model = (HomeViewModel)this.BindingContext.DataContext;
+            var res = await model.SaveScreenShotData(input);
+            if (res)
             {
                 await DisplayAlert("Success", "Saved to Azure", "ok");
             }
@@ -338,15 +337,14 @@ namespace IrisndtMarsRover.Forms.UI.Pages
         {
             ShowActivityControl(true);
 
-            RoverService service = new RoverService();
-            var res = await service.GetAllDatas();
+            HomeViewModel model = (HomeViewModel)this.BindingContext.DataContext;
+            var res = await model.GetAllHistoryInformations();
             if (res != null)
             {
                 await AppStart.navigation.Navigate<HistoryViewModel, List<RoverEntity>>(res);
             }
             ShowActivityControl(false);
            
-            
         }
     }
 }

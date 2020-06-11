@@ -22,7 +22,7 @@ namespace TipCalc.Forms.iOS
                     var bytes = new byte[data.Length];
                     Marshal.Copy(data.Bytes, bytes, 0, Convert.ToInt32(data.Length));
                     var compressed = ResizeImageIOS(bytes, 50, 75);
-                    return bytes;
+                    return compressed;
                 }
             }
 

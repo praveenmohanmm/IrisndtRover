@@ -5,6 +5,9 @@ using MvvmCross.Navigation;
 using System;
 using IrisndtMarsRover.Core.Models;
 using MvvmCross.Commands;
+using IrisndtMarsRover.Core.Service;
+using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
@@ -63,6 +66,9 @@ namespace IrisndtMarsRover.Core.ViewModels
         {
             get;set;
         }
+
+       
+ 
         #endregion
 
         public override void Prepare()
@@ -77,15 +83,49 @@ namespace IrisndtMarsRover.Core.ViewModels
             return base.Initialize();
         }
 
-        public IMvxCommand ResetTextCommand => new MvxCommand(ResetText);
-
-        private void ResetText()
+       
+        /// <summary>
+        /// get final points from azure
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<RoverFinalPoints> GetFinalPosFromAzure(RoverInput input )
         {
-           
+            RoverService service = new RoverService();
+            RoverFinalPoints res = await service.GetFinalPoints(input);
+            if (res != null && res.FlowPath.Length > 0)
+            {
+                return res;
+            }
+            return null;
         }
 
-   
-     
+        /// <summary>
+        /// save screenshots and other in-outs
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<bool> SaveScreenShotData(RoverEntity input)
+        {
+            RoverService service = new RoverService();
+            var res = await service.SaveData(input);
+            return res;
+        }
+
+        /// <summary>
+        /// get complete history of inouts
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<List<RoverEntity>> GetAllHistoryInformations()
+        {
+            RoverService service = new RoverService();
+            var res = await service.GetAllDatas();
+            return res;
+        }
+
+
+
         public  HomeViewModel()
         {
             try
