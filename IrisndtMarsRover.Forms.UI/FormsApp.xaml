@@ -2,6 +2,13 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="IrisndtMarsRover.Forms.UI.FormsApp">
-    <Application.Resources>        
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelheadingstyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            </ResourceDictionary>
     </Application.Resources>
 </Application>

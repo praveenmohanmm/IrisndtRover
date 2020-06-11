@@ -4,6 +4,7 @@ using IrisndtMarsRover.Core;
 using MvvmCross.Navigation;
 using System;
 using IrisndtMarsRover.Core.Models;
+using MvvmCross.Commands;
 
 namespace IrisndtMarsRover.Core.ViewModels
 {
@@ -18,51 +19,89 @@ namespace IrisndtMarsRover.Core.ViewModels
         #region Public properties
         public string RowscolsEntry
         {
-            get
-            {
-                return rowscolsEntry;
-            }
-            set { RowscolsEntry = value; RaisePropertyChanged(() => RowscolsEntry); }
+            get { return rowscolsEntry; }
+            set { SetProperty(ref rowscolsEntry, value); }
         }
+
         public string CommandsEntry
         {
-            get
-            {
-                return commandsEntry;
-            }
-            set { CommandsEntry = value; RaisePropertyChanged(() => CommandsEntry); }
+            get { return commandsEntry; }
+            set { SetProperty(ref commandsEntry, value); }
+        }
+
+        public string StartingHeading
+        {
+            get;set;
+        }
+
+        public string EndHeading
+        {
+            get; set;
+        }
+
+        public string PlateauHeading
+        {
+            get; set;
+        }
+
+        public string GridSizeEntryHeading
+        {
+            get; set;
+        }
+
+        public string ExecuteCommandHeading
+        {
+            get;set;
+        }
+
+        public string SaveDataHeading
+        {
+            get;set;
+        }
+
+        public string ViewHistoryHeading
+        {
+            get;set;
         }
         #endregion
-        public  HomeViewModel()
+
+        public override void Prepare()
         {
-
-           
-           
-
+            // This is the first method to be called after construction
         }
 
+        public override Task Initialize()
+        {
+            // Async initialization, YEY!
+
+            return base.Initialize();
+        }
+
+        public IMvxCommand ResetTextCommand => new MvxCommand(ResetText);
+
+        private void ResetText()
+        {
+           
+        }
 
    
-        public override async Task Initialize()
+     
+        public  HomeViewModel()
         {
-            await base.Initialize();
-
             try
             {
-               // RowscolsEntry = "5 5";
-        
+                StartingHeading = "Starting Pos";
+                EndHeading = "Ending Pos";
+                GridSizeEntryHeading = "Enter the grid size in X X format like 3 3";
+                PlateauHeading = "Create plateau";
+                ExecuteCommandHeading = "Execute Commands";
+                SaveDataHeading = "Save Data";
+                ViewHistoryHeading = "View History";
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 System.Diagnostics.Debug.Write(ex.Message);
             }
-
-
-        }
-
-        public void OnGetFinalPoints()
-        {
-           
         }
 
       
